@@ -164,20 +164,19 @@ class NerModel(BertPreTrainedModel):
         B, L = h.shape[0], h.shape[1]
         primary_table = self.fc_table(h)  # BLLY
 
-        #global feature learing
-        F_B = primary_table.max(dim=2).values#BLY
-        F_E = primary_table.max(dim=1).values#BLY
-        F_B_ = self.fc_b_g(F_B)
-        F_E_ = self.fc_e_g(F_E)
-        T_B=H_B+self.fc_gfl(F_B_,H,mask_token_ids)[0]
-        T_E=H_E+self.fc_gfl(F_E_,H,mask_token_ids)[0]
-
-        # prediction table generate
-        h_ = self.elu(T_B.unsqueeze(2).repeat(1, 1, L, 1) * T_E.unsqueeze(1).repeat(1, L, 1, 1))
-        pred_table = self.fc_table(h_)
-        pred_table=pred_table.reshape([B, L, L, self.cfg.num_enity])
-
         if self.cfg.pred_mode:
+            # global feature learing
+            F_B = primary_table.max(dim=2).values  # BLY
+            F_E = primary_table.max(dim=1).values  # BLY
+            F_B_ = self.fc_b_g(F_B)
+            F_E_ = self.fc_e_g(F_E)
+            T_B = H_B + self.fc_gfl(F_B_, H, mask_token_ids)[0]
+            T_E = H_E + self.fc_gfl(F_E_, H, mask_token_ids)[0]
+
+            # prediction table generate
+            h_ = self.elu(T_B.unsqueeze(2).repeat(1, 1, L, 1) * T_E.unsqueeze(1).repeat(1, L, 1, 1))
+            pred_table = self.fc_table(h_)
+            pred_table = pred_table.reshape([B, L, L, self.cfg.num_enity])
             return pred_table
         else:
             return primary_table

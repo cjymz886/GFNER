@@ -157,7 +157,7 @@ if __name__ == '__main__':
     config.word2vector = cfg.word2vector
     config.use_bert = cfg.use_bert
     config.vocab_s = cfg.vocab_size
-    config.pred_mode = cfg.pred_mode
+    config.gfl = cfg.gfl
     config.bert_path = cfg.bert_path
     if 'roberta' in cfg.bert_model:
         model = NerRobertaModel(config)

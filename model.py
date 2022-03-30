@@ -164,7 +164,7 @@ class NerModel(BertPreTrainedModel):
         B, L = h.shape[0], h.shape[1]
         primary_table = self.fc_table(h)  # BLLY
 
-        if self.cfg.pred_mode:
+        if self.cfg.gfl:
             # global feature learing
             F_B = primary_table.max(dim=2).values  # BLY
             F_E = primary_table.max(dim=1).values  # BLY

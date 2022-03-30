@@ -35,7 +35,7 @@ class GENIAConfig():
     history_path='./saved_models/'+dataset+'/history.pickle'
     primary_tables = './data/' + dataset + '/primary_tables.json'
     pred_tables = './data/' + dataset + '/pred_tables.json'
-    pred_mode = True
+    gfl = True
 
     # bert_model = 'biobert-base-cased-v1.2'
     bert_model='biobert-large-cased-v1.1'
@@ -79,7 +79,7 @@ class WeiboConfig():
     history_path='./saved_models/'+dataset+'/history.pickle'
     primary_tables = './data/' + dataset + '/primary_tables.json'
     pred_tables = './data/' + dataset + '/pred_tables.json'
-    pred_mode = True
+    gfl = True
 
     # bert_model = 'chinese_roberta_wwm_ext_pytorch'
     bert_model = 'bert-base-chinese'
@@ -124,7 +124,7 @@ class ConllConfig():
     history_path='./saved_models/'+dataset+'/history.pickle'
     primary_tables = './data/' + dataset + '/primary_tables.json'
     pred_tables = './data/' + dataset + '/pred_tables.json'
-    pred_mode = True
+    gfl = True
 
     # bert_model = 'biobert-base-cased-v1.2'
     # bert_model='biobert-large-cased-v1.1'
@@ -155,7 +155,7 @@ class Ace2005Config():
 
     batch_size=8
     epochs=50
-    pred_mode=True
+    gfl=True
 
 
     device = torch.device("cuda")

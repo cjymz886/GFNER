@@ -1,5 +1,5 @@
 # TFNER
-a unified framework for flat and nested named entity recognition based on table filling
+GFNER: A Unified Global Feature-aware Framework for Flat and Nested Named Entity Recognition
 
 ## Setup conda enviroment
 
@@ -10,8 +10,8 @@ a unified framework for flat and nested named entity recognition based on table 
 
 ## How to use
 ```bash
-git clone git@github.com:cjymz886/TFNER.git
-cd TFNER
+git clone git@github.com:cjymz886/GFNER.git
+cd GFNER
 python run.py --mode train --config_name genia
 ```
 

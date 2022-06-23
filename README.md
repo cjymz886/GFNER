@@ -1,4 +1,4 @@
-# TFNER
+# GFNER
 GFNER: A Unified Global Feature-aware Framework for Flat and Nested Named Entity Recognition
 
 ## Setup conda enviroment

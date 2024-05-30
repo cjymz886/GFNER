@@ -19,3 +19,8 @@ python run.py --mode train --config_name genia
 The comparison of prediction mode and primary mode:
 
 ![primary_prediction](pic/table_fig152.png)
+
+## data
+```
+contain CoNLL2003,GENIA,weibo dataset, except ACE2005 since no right to share
+```
